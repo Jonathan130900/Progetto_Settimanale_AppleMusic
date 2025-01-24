@@ -19,9 +19,9 @@ const initialState: MusicState = {
   loading: false,
 };
 
-export const fetchNewReleases = createAsyncThunk(
+export const fetchNewReleases = createAsyncThunk<Track[], string | undefined>(
   "music/fetchNewReleases",
-  async (query: string = "new") => {
+  async (query = "new") => {
     const response = await fetch(
       `https://striveschool-api.herokuapp.com/api/deezer/search?q=${query}`
     );

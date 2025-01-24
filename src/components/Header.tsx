@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Navbar, Container, Button, Form, Offcanvas } from "react-bootstrap";
 import appleLogo from "../assets/logos/apple.svg";
+import appleMusicLogo from "../assets/logos/music.svg";
 
 const Header: React.FC = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -25,11 +26,12 @@ const Header: React.FC = () => {
         <Container fluid>
           <div className="d-flex align-items-center">
             <i className="bi bi-shuffle fs-6 text-secondary me-2"></i>
-            <i className="bi bi-skip-backward-fill fs-4 text-secondary me-2"></i>
+            <i className="bi bi-rewind-fill fs-4 text-secondary me-2"></i>
             <i className="bi bi-play-fill fs-2 text-secondary me-2"></i>
-            <i className="bi bi-skip-forward-fill fs-4 text-secondary me-2"></i>
+            <i className="bi bi-fast-forward-fill fs-4 text-secondary me-2"></i>
             <i className="bi bi-repeat fs-6 text-secondary me-2"></i>
           </div>
+
           <Navbar.Brand href="#" className="fw-bold fs-4 mx-auto">
             <img
               src={appleLogo}
@@ -42,9 +44,32 @@ const Header: React.FC = () => {
               }}
             />
           </Navbar.Brand>
+
           <div className="d-flex align-items-center">
-            <Form.Range className="me-3" style={{ width: "150px" }} />
-            <Button variant="outline-light">Accedi</Button>
+            <div className="d-flex align-items-center me-3">
+              <i
+                className="bi bi-volume-down-fill me-2"
+                style={{ color: "#aaa" }}
+              ></i>
+              <Form.Range
+                style={{
+                  width: "150px",
+                  backgroundColor: "#2b2b2b",
+                  accentColor: "firebrick",
+                }}
+              />
+            </div>
+
+            <Button
+              style={{
+                backgroundColor: "firebrick",
+                color: "white",
+                border: "none",
+              }}
+            >
+              <i className="bi bi-person-fill me-2 text-white"></i>
+              Accedi
+            </Button>
           </div>
         </Container>
       </Navbar>
@@ -59,22 +84,39 @@ const Header: React.FC = () => {
           fluid
           className="d-flex align-items-center justify-content-between"
         >
-          <Button variant="outline-light" onClick={handleShow}>
+          <Button
+            onClick={handleShow}
+            style={{
+              color: "firebrick",
+              border: "none",
+              background: "none",
+            }}
+          >
             <i className="bi bi-list"></i>
           </Button>
+
           <Navbar.Brand href="#" className="fw-bold fs-4 mx-auto">
             <img
-              src={appleLogo}
+              src={appleMusicLogo}
               alt="Apple Logo"
               className="me-2"
               style={{
-                height: "40px",
-                filter:
-                  "invert(60%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(90%) contrast(90%)",
+                height: "18px",
+                filter: "invert(100%) brightness(200%)",
               }}
             />
           </Navbar.Brand>
-          <Button variant="outline-light">Accedi</Button>
+
+          <Button
+            style={{
+              backgroundColor: "firebrick",
+              color: "white",
+              border: "none",
+            }}
+          >
+            <i className="bi bi-person-fill me-2 text-white"></i>
+            Accedi
+          </Button>
         </Container>
       </Navbar>
 
@@ -82,7 +124,7 @@ const Header: React.FC = () => {
         show={showMenu}
         onHide={handleClose}
         placement="start"
-        className="bg-dark text-white"
+        className="bg-dark text-firebrick"
       >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Menu</Offcanvas.Title>
