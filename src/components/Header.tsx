@@ -109,12 +109,11 @@ const Header: React.FC = () => {
 
           <Button
             style={{
-              backgroundColor: "firebrick",
-              color: "white",
+              background: "none",
+              color: "firebrick",
               border: "none",
             }}
           >
-            <i className="bi bi-person-fill me-2 text-white"></i>
             Accedi
           </Button>
         </Container>
